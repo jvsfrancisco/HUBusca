@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 
@@ -45,7 +45,25 @@ const HeaderWrapper = styled.header`
   }
 `;
 
-const Header = ({ showShadow }) => {
+const Header = () => {
+
+  const [showShadow, setShowShadow] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setShowShadow(true);
+    } else {
+      setShowShadow(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <HeaderWrapper
       style={{
