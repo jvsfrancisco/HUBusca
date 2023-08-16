@@ -29,13 +29,17 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
     background-color: #FAFAFA;
-}
-html, body {
-    height: 1000%;
     width: 100%;
+    height: 100%;
     font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 16px;
-    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+html { 
+    scroll-behavior: smooth;
+    height: 100%;
 }
 ol, ul {
 	list-style: none;

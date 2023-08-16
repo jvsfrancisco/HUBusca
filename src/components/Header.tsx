@@ -1,46 +1,62 @@
 import React from "react";
 import styled from "styled-components";
 
-// criar interface de busca de usuarios no github e mostrar os dados
 
 const HeaderWrapper = styled.header`
   position: fixed;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: #000;
-  font: 800 48px/20px "Bricolage Grotesque", sans-serif;
+  justify-content: flex-start;
+  padding: 0 30px;
   letter-spacing: 0em;
   height: 10vh;
   background: rgba(255, 255, 255, 0.173);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   h1 {
+    font: 800 48px/20px "Bricolage Grotesque", sans-serif;
     display: flex;
-    p {
-      color: #9765d8;
+    color: #9765d8;
+    &:hover {
+      color: #000;
+      cursor: default;
+      transform: rotate(360deg) scale(1.2);
+      transition: 0.6s;
     }
+    transition: box-shadow 0.3s ease-in-out;
   }
-  transition: box-shadow 0.3s ease-in-out;
+  h2 {
+    font: 700 24px/20px "Bricolage Grotesque", sans-serif;
+
+    display: flex;
+    color: #d1d1d1;
+    &:hover {
+      cursor: pointer;
+      color: #dfdcdc;
+    }
+    transition: box-shadow 0.3s ease-in-out;
+    display: flex;
+    border-bottom: 1px solid #d1d1d1;
+    margin-left: 60px;
+  }
 `;
 
 const Header = ({ showShadow }) => {
-    return (
-      <HeaderWrapper
-        style={{
-          boxShadow: showShadow ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
-        }}
-      >
-        <h1>
-          <p>HUB</p>
-          usca
-        </h1>
-      </HeaderWrapper>
-    );
-  };
+  return (
+    <HeaderWrapper
+      style={{
+        boxShadow: showShadow ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
+      }}
+    >
+      <h1>H</h1>
+      <h2>Página Inicial</h2>
+      <h2>Buscas Recentes</h2>
+    </HeaderWrapper>
+  );
+};
 
 export default Header;
