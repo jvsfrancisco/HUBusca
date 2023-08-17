@@ -1,4 +1,9 @@
 import styled from "styled-components";
+import { UserType } from "./../types/UserType.ts";
+
+interface UserInfoProps {
+  user: UserType;
+}
 
 const WrapperUserInfo = styled.div`
   // Estilos para WrapperUserInfo
@@ -44,7 +49,7 @@ const WrapperUserInfo = styled.div`
   &:sel
 `;
 
-const UserInfo = ({ user }) => {
+const UserInfo = ({ user } : UserInfoProps ) => {
   return (
     <WrapperUserInfo>
       <img src={user.avatar_url} alt={user.login} />

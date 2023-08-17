@@ -13,8 +13,8 @@ import GlobalStyle from "./../styles/GlobalStyles";
 const App = () => {
   return (
     <UserProvider>
+      <GlobalStyle />
       <Router>
-        <GlobalStyle />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<Navigate to="/" />} />
