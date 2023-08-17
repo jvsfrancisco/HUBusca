@@ -28,7 +28,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-    background-color: #FAFAFA;
+    background-color: #F3F5F9;
     width: 100%;
     height: 100%;
     font-family: 'Bricolage Grotesque', sans-serif;

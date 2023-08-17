@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 
@@ -33,10 +33,10 @@ const HeaderWrapper = styled.header`
     font: 700 24px/20px "Bricolage Grotesque", sans-serif;
 
     display: flex;
-    color: #d1d1d1;
+    color: #898989;
     &:hover {
       cursor: pointer;
-      color: #dfdcdc;
+      color: #d1d1d1;
     }
     transition: box-shadow 0.3s ease-in-out;
     display: flex;
