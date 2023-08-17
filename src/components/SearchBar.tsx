@@ -1,6 +1,15 @@
 import styled from "styled-components";
 
 import UserInfo from "./UserInfo.tsx";
+import { UserType } from "./../types/UserType.ts";
+
+interface SearchBarProps {
+    onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+    search: string;
+    setSearch: React.Dispatch<React.SetStateAction<string>>;
+    showUserInfo: boolean;
+    userData: UserType; 
+}
 
 const WrapperSearchBar = styled.form`
   position: relative;
@@ -55,7 +64,7 @@ const UserInfoExtension = styled.div`
   display: ${(props) => (props.show ? "block" : "none")};
 `;
 
-const SearchBar = ({ onSubmit, search, setSearch, showUserInfo, userData }) => {
+const SearchBar = ({ onSubmit, search, setSearch, showUserInfo, userData }: SearchBarProps) => {
     return (
     <WrapperSearchBar onSubmit={onSubmit}>
       <img

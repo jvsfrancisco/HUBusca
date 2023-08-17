@@ -8,13 +8,13 @@ import React from "react";
 
 import { UserProvider } from "./../contexts/UserContext.tsx";
 import HomePage from "./Home";
-import GlobalStyles from "./../styles/GlobalStyles";
+import GlobalStyle from "./../styles/GlobalStyles";
 
 const App = () => {
   return (
     <UserProvider>
       <Router>
-        <GlobalStyles />
+        <GlobalStyle />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<Navigate to="/" />} />

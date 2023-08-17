@@ -25,7 +25,7 @@ const Homepage = () => {
   const [search, setSearch] = useState("");
   const { searchUser } = useSearchUser();
   const { userData, setUserData } = useContext(UserContext);
-  const [showUserInfo, setShowUserInfo] = useState(false); 
+  const [showUserInfo, setShowUserInfo] = useState(false);
 
   const submitSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
@@ -33,7 +33,6 @@ const Homepage = () => {
       const data = await searchUser(search);
       setUserData(data);
       setShowUserInfo(true);
-
     } catch (err) {
       console.log(err);
     }

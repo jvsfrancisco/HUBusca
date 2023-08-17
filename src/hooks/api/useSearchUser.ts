@@ -3,7 +3,7 @@ import { useAsync } from "../useAsync";
 import * as userApi from "./../../services/userApi.ts";
 
 export default function useSearchUser() {
-  const getUser = async () => {
+  const getUser = async (username: string) => {
     return userApi.getUserByUsername(username); // Coloque o argumento aqui
   };
 

@@ -15,7 +15,7 @@ export function useAsync<T>(asyncFunction: () => Promise<T>, immediate = true) {
       setData(newData);
       setLoading(false);
       return newData;
-    } catch (error: unkown) {
+    } catch (error: unknown) {
       if(error instanceof Error) {
         setError(error);
       } else {
