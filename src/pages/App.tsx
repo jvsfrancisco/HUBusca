@@ -4,13 +4,13 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import React from "react";
 
 import { UserProvider } from "./../contexts/UserContext.tsx";
 import HomePage from "./Home";
-import GlobalStyle from "./../styles/GlobalStyles";
+import GlobalStyle from "./../styles/globalStyles.tsx";
 
 const App = () => {
+
   return (
     <UserProvider>
       <GlobalStyle />

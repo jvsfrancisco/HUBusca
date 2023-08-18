@@ -48,7 +48,7 @@ const WrapperSearchBar = styled.form`
   }
 `;
 
-const SearchBar = ({ onSubmit, search, setSearch, showUserInfo }: SearchBarProps) => {
+const SearchBar = ({ onSubmit, search, setSearch }: SearchBarProps) => {
     return (
     <WrapperSearchBar onSubmit={onSubmit}>
       <img
@@ -60,7 +60,6 @@ const SearchBar = ({ onSubmit, search, setSearch, showUserInfo }: SearchBarProps
         value={search}
         placeholder="Buscar usuário"
         onChange={(e) => setSearch(e.target.value)}
-        disabled={showUserInfo}
       />
     </WrapperSearchBar>
   );

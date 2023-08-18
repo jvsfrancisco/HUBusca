@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import Header from "./../../components/Header.tsx";
 import SearchBar from "./../../components/SearchBar.tsx";
 import useSearchUser from "./../../hooks/api/useSearchUser.ts";
-import UserContext from "./../../contexts/UserContext.tsx";
+import  { useUser }  from "./../../contexts/UserContext.tsx";
 
 const LogoWrapper = styled.div`
   display: flex;
@@ -24,15 +24,13 @@ const LogoWrapper = styled.div`
 const Homepage = () => {
   const [search, setSearch] = useState("");
   const { searchUser } = useSearchUser();
-  const { userData, setUserData } = useContext(UserContext);
-  const [showUserInfo, setShowUserInfo] = useState(false);
+  const { setUserData } = useUser();
 
   const submitSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
       const data = await searchUser(search);
       setUserData(data);
-      setShowUserInfo(true);
     } catch (err) {
       console.log(err);
     }
@@ -50,8 +48,6 @@ const Homepage = () => {
         onSubmit={submitSearch}
         search={search}
         setSearch={setSearch}
-        showUserInfo={showUserInfo}
-        userData={userData}
       />
     </>
   );

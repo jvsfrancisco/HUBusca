@@ -1,25 +1,16 @@
-import { createContext } from "react";
-
-import { useLocalStorage } from "../hooks/useLocalStorage";
-import { UserTypes } from "../types/UserTypes";
+import { createContext, ReactNode, useContext } from "react";
+import { useLocalStorage } from "./../hooks/useLocalStorage";
+import { UserType } from "./../types/UserType";
 
 interface UserContextType {
-  userData: UserTypes | null;
-  setUserData: React.Dispatch<React.SetStateAction<UserTypes | null>>;
+  userData: UserType | null;
+  setUserData: React.Dispatch<React.SetStateAction<UserType | null>>;
 }
 
-const UserContext = createContext<{
-  userData: UserData | null;
-  setUserData: React.Dispatch<React.SetStateAction<UserData | null>>;
-}>({
-  userData: null,
-  setUserData: () => {},
-});
+const UserContext = createContext<UserContextType | undefined>(undefined);
 
-export default UserContext;
-
-export function UserProvider({ children } : UserContextType ) {
-  const [userData, setUserData] = useLocalStorage("userData", {});
+export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const { storedValue: userData, setValue: setUserData } = useLocalStorage<UserType | null>("userData", null);
 
   return (
     <UserContext.Provider value={{ userData, setUserData }}>
@@ -27,3 +18,14 @@ export function UserProvider({ children } : UserContextType ) {
     </UserContext.Provider>
   );
 }
+
+
+export const useUser = () => {
+  const context = useContext(UserContext);
+  if (!context) {
+    throw new Error("useUser must be used within a UserProvider");
+  }
+  return context;
+}
+
+export default UserContext;
